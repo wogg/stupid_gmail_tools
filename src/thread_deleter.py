@@ -103,9 +103,11 @@ def main():
     mmm.before = flags.before
     messages = mmm.messages_for_label(mmm.label_for_name(flags.label))
     # print("Labels: %s" % labels.__dir__()
-    for m in messages:
+    for i, m in enumerate(messages):
         mmm.delete_message(m)
-        print("deleted %s" % m)
+        print("deleted %s: %s" % (i + 1,m))
+        if i == mmm.limit:
+            break
         #message = mmm.service.users().messages().\
         #        get(userId='me', id=m['id']).execute()
         #print('Message snippet: %s' % message['snippet'])

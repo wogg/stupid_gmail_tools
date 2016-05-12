@@ -150,9 +150,7 @@ class MarksMailMurder():
     def delete_messages(self, messages):
         if type(messages) is not list:
             messages = [messages]
-        count = 0
-        for message in messages:
-            count += 1
+        for count, message in enumerate(messages):
             self.deleted += 1
             try:
                 self.delete_message(message)
@@ -174,9 +172,7 @@ class MarksMailMurder():
     def delete_threads(self, threads):
         if type(threads) is not list:
             threads = [threads]
-        count = 0
-        for thread in threads:
-            count += 1
+        for count, thread in enumerate(threads):
             self.deleted += 1
             try:
                 self.delete_thread(thread)
